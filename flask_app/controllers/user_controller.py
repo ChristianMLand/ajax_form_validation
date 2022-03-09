@@ -10,7 +10,7 @@ def index():
 
 @app.route('/success')
 def success():
-    return render_template('success.html')
+    return render_template('success.html', user=User.retrieve_one(id=session['id']))
 #-----------------Action Routes---------#
 @app.route('/register', methods=['POST'])
 def register():
@@ -18,7 +18,7 @@ def register():
     if errors:
         return jsonify(errors)
     session['id'] = User.create(**request.form)
-    return redirect('/success')
+    return jsonify(message="success")
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -27,7 +27,7 @@ def login():
         return jsonify(errors)
     user = User.retrieve_one(email=request.form['login_email'])
     session['id'] = user.id
-    return redirect('/success')
+    return jsonify(message="success")
 
 @app.route('/logout')
 def logout():
