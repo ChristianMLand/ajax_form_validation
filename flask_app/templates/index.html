@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.23.0/axios.min.js" integrity="sha512-Idr7xVNnMWCsgBQscTSCivBNWWH30oo/tzYORviOCrLKmBaRxRflm2miNhTFJNVmXvCtzgms5nlJF4az2hiGnA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div class="row justify-content-center">
+        <form action="/register" id="register" method="POST" class="col-4">
+            <fieldset class="border p-3">
+                <legend class="w-auto">Register</legend>
+                <div>
+                    <input type="text" name="first_name" placeholder="First Name" class="form-control mb-2">
+                    <!-- first_name validations will go here -->
+                </div>
+                <div>
+                    <input type="text" name="last_name" placeholder="Last Name" class="form-control mb-2">
+                    <!-- last_name validations will go here -->
+                </div>
+                <div>
+                    <input type="text" name="email" placeholder="Email" class="form-control mb-2">
+                    <!-- email validations will go here -->
+                </div>
+                <div>
+                    <input type="password" name="password" placeholder="Password" class="form-control mb-2">
+                    <!-- password validations will go here -->
+                </div>
+                <div>
+                    <input type="password" name="confirm_password" placeholder="Confirm Password" class="form-control mb-2">
+                    <!-- confirm_password validations will go here -->
+                </div>
+                <button class="btn btn-success">Register</button>
+            </fieldset>
+        </form>
+        <form action="/login" id="login" method="POST" class="col-4">
+            <fieldset class="border p-3">
+                <legend class="w-auto">Login</legend>
+                <div>
+                    <input type="email" name="login_email" placeholder="Email" class="form-control mb-2">
+                    <!-- login_email validations will go here -->
+                </div>
+                <div>
+                    <input type="password" name="login_password" placeholder="Password" class="form-control mb-2">
+                    <!-- login_password validations will go here -->
+                </div>
+                <button class="btn btn-success">Login</button>
+            </fieldset>
+        </form>
+    </div>
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+</body>
+</html>
